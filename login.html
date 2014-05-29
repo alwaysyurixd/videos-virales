@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="style/js/jquery-1.7.2.min.js"></script>
+	<script>
+	$(document).on('ready',function(){
+		$('#login').hide();
+		$('#open_close').click(function(){
+			$('#login').slideToggle();
+		})
+	})
+	</script>
+	<style>
+	body{
+		background-color: #EB8D00;
+		font-family: Tahoma;
+
+	}
+	h1{
+		text-align: center;
+	}
+	#open_close{
+		color: #fff;
+		width: 200px;
+		background-color: #000;
+		padding: 10px;
+		border-radius: 2px;
+		border-bottom: 2px solid #fff;
+	}
+	#login{
+		width: 200px;
+		height: 140px;
+		background: #000;
+		border-radius: 2px;
+		padding: 10px;
+		color: #fff;
+	}
+	#enviar{
+		border: none;
+		border-radius: 5px;
+		margin: 15px;
+		margin: 15px 82px;
+		width: 70px;
+	}
+	</style>
+</head>
+<body>
+<h1>Login con jquery y css3</h1>
+<div id="open_close">Login</div>
+<form id="login">
+	<label>Nombre</label>
+	<input type="text" id="nombre" placeholder="Nombre">
+	<label>Password</label>
+	<input type="password" id="password" placeholder="Password">
+	<input type="submit" value="Enviar" id="enviar">
+</form>
+</body>
+</html>
