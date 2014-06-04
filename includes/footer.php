@@ -10,7 +10,7 @@
 			<div class="widget widget_archive">
 				<h3 class="widget-title">Archivos</h3>
 				<ul>
-					<li><a href="../../2014/04">Abril 2014</a> (6)</li>
+					<li><a href="2014/04">Abril 2014</a> (6)</li>
 					<li><a href="#">Marzo 2014</a> (2)</li>
 					<li><a href="#">Febrero 2014</a> (2)</li>
 					<li><a href="#">Enero 2014</a> (4)</li>
@@ -37,7 +37,7 @@
 			<ul class="post-list">
 			  	<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="../../style/images/art/s1.jpg" /></a>
+			  			<a href="#"><img src="style/images/art/s1.jpg" /></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Charming Winter</a></h6>
@@ -46,7 +46,7 @@
 				</li>
 				<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="../../style/images/art/s2.jpg" /></a>
+			  			<a href="#"><img src="style/images/art/s2.jpg" /></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Trickling Stream</a></h6>
@@ -55,7 +55,7 @@
 				</li>
 				<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="../../style/images/art/s3.jpg" /></a>
+			  			<a href="#"><img src="style/images/art/s3.jpg" /></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Morning Glory</a></h6>

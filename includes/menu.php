@@ -10,8 +10,8 @@
 	<div class="header">
 		<!-- Begin Logo -->
 		<div class="logo">
-		    <a href="../../index.php">
-				<img src="../../style/images/logo2.png" alt="" />
+		    <a href="index.php">
+				<img src="style/images/logo2.png" alt="" />
 			</a>
 	    </div>
 		<!-- End Logo -->
@@ -19,7 +19,7 @@
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li class="active"><a href="../../index.php">Portada</a>
+					<li class="active"><a href="index.php">Portada</a>
 						<ul>
 							<li><a href="../2014/04/index.php">Mes pasado</a></li>
 						</ul>
@@ -36,7 +36,7 @@
 							<li><a href="columns.html">Columns</a></li>
 						</ul>
 					</li>
-					<li><a href="../../contact.php">Contacto</a></li>
+					<li><a href="contact.php">Contacto</a></li>
 				</ul>
 			</div>
 		</div>
@@ -44,6 +44,6 @@
 		<!-- End Menu -->
 	</div>
 </div>
-<script src="../../style/js/scripts.js"></script>
+<script src="style/js/scripts.js"></script>
 </body>
 </html>

@@ -21,7 +21,9 @@ return $cadena;
 	$arrayDescripcion=array();
 	$arrayImagen=array();
 	$arrayFecha=array();
+	$arrayId=array();
 	while($fila = mysqli_fetch_array($resultado)){
+	$id=$fila['idArticulo'];
     $titulo=$fila['titulo'];
     $descripcion=$fila['descripcion'];
     $imagen=$fila['imagen'];
@@ -30,6 +32,7 @@ return $cadena;
    	array_push($arrayDescripcion,$descripcion);
    	$titulo2=str_replace(" ","-",$titulo);
    	$titulo2=normaliza($titulo2);
+   	array_push($arrayId,$id);
    	array_push($arrayTitulo,$titulo2);
    	array_push($arrayImagen,$imagen);
    	array_push($arrayFecha,$fecha);
@@ -175,7 +178,7 @@ return $cadena;
 		<!-- Inicio de un artículo -->
 		<div class="post format-image box"> 
 			<div class="frame">
-			<?php echo "<a href='".$arrayFecha[0][0]."/".$arrayFecha[0][1]."/".$arrayTitulo[0].".php'>
+			<?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
 					<img src='imagenes/".$arrayImagen[0]."' alt='' />
 				</a>"; ?>
 				
@@ -194,7 +197,7 @@ return $cadena;
 		<!-- Inicio de un artículo -->
 		<div class="post format-image box"> 
 			<div class="frame">
-			<?php echo "<a href='".$arrayFecha[1][0]."/".$arrayFecha[1][1]."/".$arrayTitulo[1].".php'>
+			<?php echo "<a href='articulo-".$arrayFecha[1][0]."-".$arrayFecha[1][1]."_".$arrayTitulo[1]."-".$arrayId[1]."'>
 					<img src='imagenes/".$arrayImagen[1]."' alt='' />
 				</a>"; ?>
 				
@@ -213,7 +216,7 @@ return $cadena;
 		<!-- Inicio de un artículo -->
 		<div class="post format-image box"> 
 			<div class="frame">
-			<?php echo "<a href='".$arrayFecha[2][0]."/".$arrayFecha[2][1]."/".$arrayTitulo[2].".php'>
+			<?php echo "<a href='articulo-".$arrayFecha[2][0]."-".$arrayFecha[2][1]."_".$arrayTitulo[2]."-".$arrayId[2]."'>
 					<img src='imagenes/".$arrayImagen[2]."' alt='' />
 				</a>"; ?>
 				
@@ -232,7 +235,7 @@ return $cadena;
 		<!-- Inicio de un artículo -->
 		<div class="post format-image box"> 
 			<div class="frame">
-			<?php echo "<a href='".$arrayFecha[3][0]."/".$arrayFecha[3][1]."/".$arrayTitulo[3].".php'>
+			<?php echo "<a href='articulo-".$arrayFecha[3][0]."-".$arrayFecha[3][1]."_".$arrayTitulo[3]."-".$arrayId[3]."'>
 					<img src='imagenes/".$arrayImagen[3]."' alt='' />
 				</a>"; ?>
 				
@@ -251,7 +254,7 @@ return $cadena;
  		<!-- Inicio de un artículo -->
  		<div class="post format-image box"> 
 			<div class="frame">
-			<?php echo "<a href='".$arrayFecha[4][0]."/".$arrayFecha[4][1]."/".$arrayTitulo[4].".php'>
+			<?php echo "<a href='articulo-".$arrayFecha[4][0]."-".$arrayFecha[4][1]."_".$arrayTitulo[4]."-".$arrayId[4]."'>
 					<img src='imagenes/".$arrayImagen[4]."' alt='' />
 				</a>"; ?>
 				
@@ -270,7 +273,7 @@ return $cadena;
 		<!-- Inicio de un artículo -->
 		<div class="post format-image box"> 
 			<div class="frame">
-			<?php echo "<a href='".$arrayFecha[5][0]."/".$arrayFecha[5][1]."/".$arrayTitulo[5].".php'>
+			<?php echo "<a href='articulo-".$arrayFecha[5][0]."-".$arrayFecha[5][1]."_".$arrayTitulo[5]."-".$arrayId[5]."'>
 					<img src='imagenes/".$arrayImagen[5]."' alt='' />
 				</a>"; ?>
 				

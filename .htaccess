@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{SCRIPT_FILENAME} !-d  
+RewriteCond %{SCRIPT_FILENAME} !-f
+Rewriterule ^articulo-(.+)-(.+)_(.+)-(.+)$ articulo.php?anio=$1&mes=$2&articulo=$3&id=$4
