@@ -94,7 +94,7 @@ $fila = mysqli_fetch_array($resultado);
 		
 			<h1 class="title"><?php echo $fila[1]; ?></h1>
 			<p>
-			<?php 
+			<?php
 				echo $fila[2];
 			 ?>
 			</p>
