@@ -1,27 +1,23 @@
 <?php 
-$id=$_GET['id'];
-$anio=$_GET['anio'];
-$mes=$_GET['mes'];
-$articulo=$_GET['articulo'];
-include('globales.php');
-//$descripcion=explode("/", $_SERVER['PHP_SELF']);
-//$descripcion2=$descripcion[4];
-$articulo=str_replace("-"," ",$articulo);
-//$contenido=str_replace(".php","",$descripcion3);
+include('../../globales.php');
+$descripcion=explode("/", $_SERVER['PHP_SELF']);
+$descripcion2=$descripcion[4];
+$descripcion3=str_replace("-"," ",$descripcion2);
+$contenido=str_replace(".php","",$descripcion3);
 $conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
-$consulta="select * from articulo where idArticulo='".$id."'";
+$consulta="select * from articulo where titulo='".$contenido."'";
 $resultado=mysqli_query($conexion,$consulta);
 $fila = mysqli_fetch_array($resultado);				
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html" charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Videos virales</title>
-<link rel="stylesheet" type="text/css" media="all" href="style.css" />
-<link rel="stylesheet" type="text/css" href="style/css/media-queries.css" />
-<link rel="stylesheet" type="text/css" href="style/js/player/mediaelementplayer.css" />
+<link rel="stylesheet" type="text/css" media="all" href="../../style.css" />
+<link rel="stylesheet" type="text/css" href="../../style/css/media-queries.css" />
+<link rel="stylesheet" type="text/css" href="../../style/js/player/mediaelementplayer.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
@@ -29,19 +25,19 @@ $fila = mysqli_fetch_array($resultado);
 <!--[if IE 9]>
 <link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all" />
 <![endif]-->
-<script src="style/js/jquery-1.7.2.min.js"></script>
-<script src="style/js/ddsmoothmenu.js"></script>
-<script src="style/js/retina.js"></script>
-<script src="style/js/selectnav.js"></script>
-<script src="style/js/jquery.masonry.min.js"></script>
-<script src="style/js/jquery.fitvids.js"></script>
-<script src="style/js/jquery.backstretch.min.js"></script>
-<script src="style/js/mediaelement.min.js"></script>
-<script src="style/js/mediaelementplayer.min.js"></script>
-<script src="style/js/jquery.dcflickr.1.0.js"></script>
-<script src="style/js/twitter.min.js"></script>
+<script src="../../style/js/jquery-1.7.2.min.js"></script>
+<script src="../../style/js/ddsmoothmenu.js"></script>
+<script src="../../style/js/retina.js"></script>
+<script src="../../style/js/selectnav.js"></script>
+<script src="../../style/js/jquery.masonry.min.js"></script>
+<script src="../../style/js/jquery.fitvids.js"></script>
+<script src="../../style/js/jquery.backstretch.min.js"></script>
+<script src="../../style/js/mediaelement.min.js"></script>
+<script src="../../style/js/mediaelementplayer.min.js"></script>
+<script src="../../style/js/jquery.dcflickr.1.0.js"></script>
+<script src="../../style/js/twitter.min.js"></script>
 <script>
-	$.backstretch("style/images/bg/1.jpg");
+	$.backstretch("../../style/images/bg/1.jpg");
 </script>
 </head>
 <!--COMENTARIOS DE FACEBOOK-->
@@ -55,7 +51,7 @@ $fila = mysqli_fetch_array($resultado);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--FIN DE COMENTARIOS DE FACEBOOK-->
 <body class="single">
-<?php include("includes/menu.php") ?>
+<?php include("../../menu.php") ?>
 <!-- Begin Wrapper -->
 <div class="wrapper"><!-- Begin Intro -->
 <div class="intro"><?php echo $frase_semana; ?></div>
@@ -71,7 +67,7 @@ $fila = mysqli_fetch_array($resultado);
 				echo $fila[4]; 
 			}
 			else{
-				echo "<image src='imagenes/".$fila[4]."'>"; 
+				echo "<image src='../../imagenes/".$fila[4]."'>"; 
 			}
 			
 			?>
@@ -128,7 +124,7 @@ $fila = mysqli_fetch_array($resultado);
 			<ul class="post-list">
 			  	<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s1.jpg" /></a>
+			  			<a href="#"><img src="../../style/images/art/s1.jpg" /></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Charming Winter</a></h6>
@@ -137,7 +133,7 @@ $fila = mysqli_fetch_array($resultado);
 				</li>
 				<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s2.jpg" /></a>
+			  			<a href="#"><img src="../../style/images/art/s2.jpg" /></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Trickling Stream</a></h6>
@@ -146,7 +142,7 @@ $fila = mysqli_fetch_array($resultado);
 				</li>
 				<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s3.jpg" /></a>
+			  			<a href="#"><img src="../../style/images/art/s3.jpg" /></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Morning Glory</a></h6>
@@ -191,7 +187,7 @@ $fila = mysqli_fetch_array($resultado);
 
 <!-- Begin Footer -->
 <?php 
-include("includes/footer.php");
+include("../../includes/footer.php");
  ?>
 <!-- End Footer --> 
 <script type="text/javascript" src="style/js/scripts.js"></script>
