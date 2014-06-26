@@ -3,6 +3,11 @@ session_start();
 if (!isset($_SESSION['usuario'])) {
 header("Location:index.php"); 
 } 
+if (isset($_GET['error'])) {
+	echo "<script>
+		alert('no deje ningun campo vacio');
+	</script>";	
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
@@ -45,6 +50,14 @@ header("Location:index.php");
 		})
 	})
 </script>
+<script>
+	$(document).on('ready',function(){
+		$('#form_cambio').hide();
+		$('#cambiar_password').click(function(){
+			$('#form_cambio').slideToggle();
+		})
+	})
+</script>
 </head>
 <body>
 <div class="scanlines"></div>
@@ -63,10 +76,7 @@ header("Location:index.php");
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li><a href="index.php">Blog</a>
-						<ul>
-							<li><a href="post.html">Blog Post</a></li>
-						</ul>
+					<li><a href="administracion/mantenimiento.php">Mantenimiento</a>
 					</li>
 					<li><a href="page-with-sidebar.html">Pages</a>
 						<ul>
@@ -113,19 +123,18 @@ header("Location:index.php");
 	<form class="forms" action="publicar.php" method="GET">
 		<fieldset>
 			<ol>
-				<li class="form-row text-input-row"><label>Titulo</label><input type="text" name="titulo" maxlength="100" class="text-input required" title="" /></li>
+				<li class="form-row text-input-row"><label>Titulo</label><input type="text" name="titulo" maxlength="100" class="text-input required"/></li>
 				<li class="form-row text-area-row"><label>Descripcion</label><textarea name="descripcion" class="text-area required" maxlength="5000"></textarea></li>
 				<li class="form-row text-input-row"><label>Tipo de contenido</label>Noticia<input type="radio" name="tipo" value="1" class="text-input required" checked="checked" id="radio_noticia" />Video<input type="radio" name="tipo" value="2" class="text-input required" id="radio_video" /></li>
 
-				<li class="form-row text-input-row"><label>Imagen en portada</label><input type="file" accept="image/*" name="imagen" value="" class="text-input required email" title="" /></li> 
-				<li class="form-row text-input-row"><label>Imagen en artículo</label><input type="text" name="imagen2" value="" class="text-input required email" title="" id="input_video" /></li> 				
+				<li class="form-row text-input-row"><label>Imagen en portada</label><input type="file" accept="image/*" name="imagen" value="" class="text-input required email"/></li> 
+				<li class="form-row text-input-row"><label>Imagen en artículo</label><input type="text" name="imagen2" value="" class="text-input required email" id="input_video" /></li> 				
 				
-				<li class="button-row"><input type="submit" value="Enviar" name="submit" class="btn-submit" /></li>
+				<li class="button-row"><input type="submit" value="Publicar" name="submit" class="btn-submit" /></li>
 			</ol>
 		</fieldset>
 	</form>
 </div>
-
 
 
 </div>
@@ -134,8 +143,8 @@ header("Location:index.php");
 <!-- Begin Sidebar -->
 <div class="sidebar box">
   <div class="sidebox widget">
-			<h3 class="widget-title">Quienes somos?</h3>
-			<p>Lorem Ipsum Dolor Sit Moon Avenue No:11/21 Planet City, Earth</p>
+			<h3 class="widget-title"><?php echo "Bienvenido: ".$_SESSION['usuario']; ?></h3>
+			<p>Esta es el área de administración de contenido, verifique todas sus acciones.</p>
 			<p>
 				<span class="lite1">Fax:</span> +555 797 534 01<br />
 				<span class="lite1">Tel:</span> +555 636 646 62<br />
@@ -147,6 +156,21 @@ header("Location:index.php");
 	<div class="sidebox widget">
 		<h3 class="widget-title">Custom Text</h3>
 		<p>Suspendisse eu odio quis elit ultrice commodo tempor eget arcu. Sedur aliquet posuere lectus aliquam iaculi. Curabitur a risus metus. In ut lorem nisl, et adipiscing sapien. Donec sed risus tristiq scelerisque. </p>
+		<button id="cambiar_password">Cambiar Contraseña</button>
+		<p></p>
+		<div id="form_cambio">
+			<form action="administracion/cambiar_password.php" method="POST">
+			<table>
+				<tr>
+					<td>Contraseña actual:</td><td><input type="text" name="password_antiguo"></td>
+				</tr>
+				<tr>
+					<td>Contraseña nueva:</td><td><input type="text" name="password_nuevo"></td>
+				</tr>
+				<tr><td></td><td><input type="submit" value="Cambiar"></td></tr>				
+			</table>				
+			</form>
+		</div>
 	</div>
 	
 </div>
@@ -157,87 +181,9 @@ header("Location:index.php");
 <!-- End Wrapper -->
 
 <!-- Begin Footer -->
-<div class="footer-wrapper">
-<div id="footer" class="four">
-		<div id="first" class="widget-area">
-			<div class="widget widget_search">
-				<h3 class="widget-title">Search</h3>
-				<form class="searchform" method="get" action="#">
-					<input type="text" name="s" value="type and hit enter" onFocus="this.value=''" onBlur="this.value='type and hit enter'"/>
-				</form>
-			</div>
-			<div class="widget widget_archive">
-				<h3 class="widget-title">Archives</h3>
-				<ul>
-					<li><a href="#">September 2012</a> (6)</li>
-					<li><a href="#">August 2012</a> (2)</li>
-					<li><a href="#">July 2012</a> (2)</li>
-					<li><a href="#">June 2012</a> (4)</li>
-					<li><a href="#">May 2012</a> (3)</li>
-					<li><a href="#">January 2012</a> (1)</li>
-				</ul>
-			</div>	
-		</div><!-- #first .widget-area -->
-	
-		<div id="second" class="widget-area">
-			<div id="twitter-2" class="widget widget_twitter">
-					<h3 class="widget-title">Twitter</h3>
-					
-					<div id="twitter-wrapper">
-						<div id="twitter"></div>
-						<span class="username"><a href="http://twitter.com/elemisdesign">→ Follow @elemisdesign</a></span>
-					</div>
-			</div>
-		</div><!-- #second .widget-area -->
-	
-		<div id="third" class="widget-area">
-		<div id="example-widget-3" class="widget example">
-			<h3 class="widget-title">Popular Posts</h3>
-			<ul class="post-list">
-			  	<li> 
-			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s1.jpg" /></a>
-			  		</div>
-					<div class="meta">
-					    <h6><a href="#">Charming Winter</a></h6>
-					    <em>28th Sep 2012</em>
-				    </div>
-				</li>
-				<li> 
-			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s2.jpg" /></a>
-			  		</div>
-					<div class="meta">
-					    <h6><a href="#">Trickling Stream</a></h6>
-					    <em>5th Sep 2012</em>
-				    </div>
-				</li>
-				<li> 
-			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s3.jpg" /></a>
-			  		</div>
-					<div class="meta">
-					    <h6><a href="#">Morning Glory</a></h6>
-					    <em>26th Sep 2012</em>
-				    </div>
-				</li>
-			</ul>
-			
-		</div>
-		</div><!-- #third .widget-area -->
-		
-		<div id="fourth" class="widget-area">
-		<div class="widget">
-			<h3 class="widget-title">Flickr</h3>
-			<ul class="flickr-feed"></ul>
-			
-		</div>
-		</div><!-- #fourth .widget-area -->
-	</div>
-</div>
-<div class="site-generator-wrapper">
-	<div class="site-generator">Copyright Obscura 2012. Design by <a href="http://elemisfreebies.com">elemis</a>. All rights reserved.</div>
-</div>
+<?php 
+include("includes/footer.php");
+ ?>
 <!-- End Footer --> 
 <script type="text/javascript" src="style/js/scripts.js"></script>
 </body>
