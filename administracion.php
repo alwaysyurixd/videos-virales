@@ -123,8 +123,8 @@ if (isset($_GET['error'])) {
 	<form class="forms" action="publicar.php" method="GET">
 		<fieldset>
 			<ol>
-				<li class="form-row text-input-row"><label>Titulo</label><input type="text" name="titulo" maxlength="100" class="text-input required"/></li>
-				<li class="form-row text-area-row"><label>Descripcion</label><textarea name="descripcion" class="text-area required" maxlength="5000"></textarea></li>
+				<li class="form-row text-input-row"><label>Titulo</label><input type="text" name="titulo" maxlength="100" class="text-input required" required/></li>
+				<li class="form-row text-area-row"><label>Descripcion</label><textarea name="descripcion" class="text-area required" maxlength="5000" required></textarea></li>
 				<li class="form-row text-input-row"><label>Tipo de contenido</label>Noticia<input type="radio" name="tipo" value="1" class="text-input required" checked="checked" id="radio_noticia" />Video<input type="radio" name="tipo" value="2" class="text-input required" id="radio_video" /></li>
 
 				<li class="form-row text-input-row"><label>Imagen en portada</label><input type="file" accept="image/*" name="imagen" value="" class="text-input required email"/></li> 

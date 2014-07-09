@@ -12,7 +12,7 @@ if ($fila[0]==$password_antiguo) {
 	$consulta2="update usuario set password = '".$password_nuevo."' where password ='".$password_antiguo."'";
 	$resultado2=mysqli_query($conexion,$consulta2);
 	session_destroy();
-	header("Location:../index.php")
+	header("Location:../index.php");
 }
 else{
 	echo "la contrasenia ingresada no es correcta";
