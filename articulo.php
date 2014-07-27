@@ -71,7 +71,7 @@ $fila = mysqli_fetch_array($resultado);
 				echo $fila[4]; 
 			}
 			else{
-				echo "<image src='imagenes/".$fila[4]."'>"; 
+				echo "<image src='Imagenes/".$fila[4]."'>"; 
 			}
 			
 			?>

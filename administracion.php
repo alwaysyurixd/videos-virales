@@ -1,13 +1,26 @@
 <?php 
-session_start(); 
-if (!isset($_SESSION['usuario'])) {
-header("Location:index.php"); 
+$time = 3600; // en mili-segundos 
+
+// verificamos si existe la sesión 
+session_start();
+if(isset($_SESSION["usuario"])) 
+{ 
+      // verificamos si existe la sesión que se encarga del tiempo 
+      // si existe, y el tiempo es mayor que una hora, expiramos la sesión  
+      if(isset($_SESSION["expire"]) && time() > $_SESSION["expire"] + $time) 
+      { 
+           unset($_SESSION["expire"]); 
+           unset($_SESSION["usuario"]); 
+           header('Location:index.php');
+      } 
+      // si no existe la creamos 
+      else 
+      { 
+           $_SESSION["expire"] = time();
+       } 
+}else{
+	header("Location:index.php"); 
 } 
-if (isset($_GET['error'])) {
-	echo "<script>
-		alert('no deje ningun campo vacio');
-	</script>";	
-}
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
@@ -90,7 +103,7 @@ if (isset($_GET['error'])) {
 							<li><a href="columns.html">Columns</a></li>
 						</ul>
 					</li>
-					<li class="active"><a href="contact.php">Contacto</a></li>
+					<li class="active"><a href="administracion/salir.php">Salir</a></li>
 				</ul>
 			</div>
 		</div>
@@ -120,7 +133,7 @@ if (isset($_GET['error'])) {
 <p>Maecenas vehicula condimentum consequat. Ut suscipit ipsum eget leotero convallis feugiat upsoyut fermentum leo auctor consequat turpis aturo nisiper.</p>
 
 <div class="form-container">
-	<form class="forms" action="publicar.php" method="GET">
+	<form class="forms" action="publicar.php" method="POST" enctype="multipart/form-data">
 		<fieldset>
 			<ol>
 				<li class="form-row text-input-row"><label>Titulo</label><input type="text" name="titulo" maxlength="100" class="text-input required" required/></li>

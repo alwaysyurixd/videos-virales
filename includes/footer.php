@@ -3,8 +3,8 @@
 		<div id="first" class="widget-area">
 			<div class="widget widget_search">
 				<h3 class="widget-title">Buscar</h3>
-				<form class="searchform" method="get" action="#">
-					<input type="text" name="s" value="Escriba y presione Enter" onFocus="this.value=''" onBlur="this.value='Escriba y presione Enter'"/>
+				<form class="searchform" method="get" action="busqueda.php">
+					<input type="text" name="busqueda" value="Escriba y presione Enter" onFocus="this.value=''" onBlur="this.value='Escriba y presione Enter'"/>
 				</form>
 			</div>
 			<div class="widget widget_archive">

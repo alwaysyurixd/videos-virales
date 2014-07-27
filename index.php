@@ -97,7 +97,7 @@ return $cadena;
 		border-radius: 2px;
 		padding: 10px;
 		color: #fff;
-		margin-left: 0px;
+		
 	}
 	#enviar{
 		border: none;
@@ -179,11 +179,12 @@ return $cadena;
 		<div class="post format-image box"> 
 			<div class="frame">
 			<?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
-					<img src='imagenes/".$arrayImagen[0]."' alt='' />
+					<img src='Imagenes/".$arrayImagen[0]."' alt='' />
 				</a>"; ?>
 			
 			</div>
-			<h2 class="title"><a href="post.php"><?php echo $array[0]; ?></a></h2>
+			<h2 class="title"><?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
+				".$array[0]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $arrayFecha[0][2]."/".$arrayFecha[0][1]."/".$arrayFecha[0][0]; ?></a></span>
@@ -198,11 +199,12 @@ return $cadena;
 		<div class="post format-image box"> 
 			<div class="frame">
 			<?php echo "<a href='articulo-".$arrayFecha[1][0]."-".$arrayFecha[1][1]."_".$arrayTitulo[1]."-".$arrayId[1]."'>
-					<img src='imagenes/".$arrayImagen[1]."' alt='' />
+					<img src='Imagenes/".$arrayImagen[1]."' alt='' />
 				</a>"; ?>
 				
 			</div>
-			<h2 class="title"><a href="post.php"><?php echo $array[1]; ?></a></h2>
+			<h2 class="title"><?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
+				".$array[1]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $arrayFecha[1][2]."/".$arrayFecha[1][1]."/".$arrayFecha[1][0]; ?></a></span>
@@ -217,11 +219,12 @@ return $cadena;
 		<div class="post format-image box"> 
 			<div class="frame">
 			<?php echo "<a href='articulo-".$arrayFecha[2][0]."-".$arrayFecha[2][1]."_".$arrayTitulo[2]."-".$arrayId[2]."'>
-					<img src='imagenes/".$arrayImagen[2]."' alt='' />
+					<img src='Imagenes/".$arrayImagen[2]."' alt='' />
 				</a>"; ?>
 				
 			</div>
-			<h2 class="title"><a href="post.php"><?php echo $array[2]; ?></a></h2>
+			<h2 class="title"><?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
+				".$array[2]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $arrayFecha[2][2]."/".$arrayFecha[2][1]."/".$arrayFecha[2][0]; ?></a></span>
@@ -236,11 +239,12 @@ return $cadena;
 		<div class="post format-image box"> 
 			<div class="frame">
 			<?php echo "<a href='articulo-".$arrayFecha[3][0]."-".$arrayFecha[3][1]."_".$arrayTitulo[3]."-".$arrayId[3]."'>
-					<img src='imagenes/".$arrayImagen[3]."' alt='' />
+					<img src='Imagenes/".$arrayImagen[3]."' alt='' />
 				</a>"; ?>
 				
 			</div>
-			<h2 class="title"><a href="post.php"><?php echo $array[3]; ?></a></h2>
+			<h2 class="title"><?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
+				".$array[2]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $arrayFecha[3][2]."/".$arrayFecha[3][1]."/".$arrayFecha[3][0]; ?></a></span>
@@ -255,11 +259,12 @@ return $cadena;
  		<div class="post format-image box"> 
 			<div class="frame">
 			<?php echo "<a href='articulo-".$arrayFecha[4][0]."-".$arrayFecha[4][1]."_".$arrayTitulo[4]."-".$arrayId[4]."'>
-					<img src='imagenes/".$arrayImagen[4]."' alt='' />
+					<img src='Imagenes/".$arrayImagen[4]."' alt='' />
 				</a>"; ?>
 				
 			</div>
-			<h2 class="title"><a href="post.php"><?php echo $array[4]; ?></a></h2>
+			<h2 class="title"><?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
+				".$array[4]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $arrayFecha[4][2]."/".$arrayFecha[4][1]."/".$arrayFecha[4][0]; ?></a></span>
@@ -274,11 +279,12 @@ return $cadena;
 		<div class="post format-image box"> 
 			<div class="frame">
 			<?php echo "<a href='articulo-".$arrayFecha[5][0]."-".$arrayFecha[5][1]."_".$arrayTitulo[5]."-".$arrayId[5]."'>
-					<img src='imagenes/".$arrayImagen[5]."' alt='' />
+					<img src='Imagenes/".$arrayImagen[5]."' alt='' />
 				</a>"; ?>
 				
 			</div>
-			<h2 class="title"><a href="post.php"><?php echo $array[5]; ?></a></h2>
+			<h2 class="title"><?php echo "<a href='articulo-".$arrayFecha[0][0]."-".$arrayFecha[0][1]."_".$arrayTitulo[0]."-".$arrayId[0]."'>
+				".$array[5]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $arrayFecha[5][2]."/".$arrayFecha[5][1]."/".$arrayFecha[5][0]; ?></a></span>

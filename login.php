@@ -12,7 +12,7 @@ include("globales.php");
 	}
 	if ($contador>0) {
 		session_start();
-		//$_SESSION['autentificado']=true;
+		$_SESSION['autentificado']="SI";
 		$_SESSION['usuario']=$usuario;
 		header("Location:administracion.php");
 	}
