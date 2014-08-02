@@ -79,7 +79,7 @@
 	$resultado=mysqli_query($conexion,$consulta);
 
 	while ($fila = mysqli_fetch_array($resultado)){
-		if ($fila[5]==2) {
+		if ($fila[6]==2) {
 			$fila[4]="video";
 		}
 		echo " 	
@@ -89,7 +89,7 @@
 	 			<td>$fila[2]</td>
 	 			<td>$fila[3]</td>
 	 			<td>$fila[4]</td>
-	 			<td>$fila[6]</td>
+	 			<td>$fila[7]</td>
 	 			<td id='columna'><a data-accion='editar'><button id='boton_editar' class='btn btn-primary'>Editar</button></a></td>
 	 			<td><a href='eliminar_articulo.php?id=".$fila[0]."'><button id='boton_eliminar' class='btn btn-danger'>Eliminar</button></a></td>
 	 		</tr>

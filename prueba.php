@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Prueba</title>
 </head>
 <body>
-<form action="prueba2.php" method="GET" enctype="multipart/form-data">
-	<input type="file" name="imagen">
-	<input type="submit">
-</form>
+	<?php 
+	$numero=1;
+		while ( $numero<= 10) {
+	?>
+	<h1><?php echo $numero; ?></h1>
+	<?php
+			
+			$numero++;
+		}
+	 ?>
 </body>
 </html>

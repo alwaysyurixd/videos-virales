@@ -1,13 +1,6 @@
 <?php 
 $id=$_GET['id'];
-$anio=$_GET['anio'];
-$mes=$_GET['mes'];
-$articulo=$_GET['articulo'];
 include('globales.php');
-//$descripcion=explode("/", $_SERVER['PHP_SELF']);
-//$descripcion2=$descripcion[4];
-$articulo=str_replace("-"," ",$articulo);
-//$contenido=str_replace(".php","",$descripcion3);
 $conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
 $consulta="select * from articulo where idArticulo='".$id."'";
 $resultado=mysqli_query($conexion,$consulta);
@@ -67,7 +60,7 @@ $fila = mysqli_fetch_array($resultado);
 		<div class="outer">
 			<span class="inset">
 			<?php 
-			if ($fila[5]==2) {
+			if ($fila[6]==2) {
 				echo $fila[4]; 
 			}
 			else{

@@ -127,7 +127,7 @@ return $cadena;
 		<!-- Inicio de un artículo -->
 	<?php  
 		$conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
-		$consulta="select * from articulo order by fecha desc limit 8";
+		$consulta="select * from articulo order by fecha desc limit 8,8";
 		$resultado=mysqli_query($conexion,$consulta);
 		$contador=0;
 		while($fila = mysqli_fetch_array($resultado)){
