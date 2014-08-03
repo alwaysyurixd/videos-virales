@@ -75,19 +75,19 @@ return $cadena;
 				<ul id="tiny">
 					<li class="active"><a href="index.php">Portada</a>
 						<ul>
-							<li><a href="2014/04/">Mes pasado</a></li>
+							<li><a href="#">Mes pasado</a></li>
 						</ul>
 					</li>
 					<li><a href="page-with-sidebar.html">Pages</a>
 						<ul>
-							<li><a href="page-with-sidebar.html">Page With Sidebar</a></li>
-							<li><a href="full-width.html">Full Width</a></li>
+							<li><a href="#">Page With Sidebar</a></li>
+							<li><a href="#">Full Width</a></li>
 						</ul>
 					</li>
 					<li><a href="contact.php">Contacto</a>
 						<ul>
-							<li><a href="typography.html">Typography</a></li>
-							<li><a href="columns.html">Columns</a></li>
+							<li><a href="#">Typography</a></li>
+							<li><a href="#">Columns</a></li>
 						</ul>
 					</li>
 					<li><div id="open_close">Login</div>
@@ -146,7 +146,7 @@ return $cadena;
 				".$fila[1]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
-				<span class="icon-image"><a href="#"><?php echo $fecha[0]."/".$fecha[1]."/".$fecha[2]; ?></a></span>
+				<span class="icon-image"><a href="#"><?php echo $fecha[2]."/".$fecha[1]."/".$fecha[0]; ?></a></span>
 				<span class="likes"><a href="#" class="likeThis">44</a></span>
 				<span class="comments"><a href="#">3</a></span>
 			</div>

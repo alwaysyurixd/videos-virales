@@ -11,7 +11,7 @@ $fila = mysqli_fetch_array($resultado);
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Videos virales</title>
+<title><?php echo $fila[1]; ?></title>
 <link rel="stylesheet" type="text/css" media="all" href="style.css" />
 <link rel="stylesheet" type="text/css" href="style/css/media-queries.css" />
 <link rel="stylesheet" type="text/css" href="style/js/player/mediaelementplayer.css" />
