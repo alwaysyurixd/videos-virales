@@ -78,7 +78,7 @@ return $cadena;
 							<li><a href="#">Mes pasado</a></li>
 						</ul>
 					</li>
-					<li><a href="page-with-sidebar.html">Pages</a>
+					<li><a href="#">Pages</a>
 						<ul>
 							<li><a href="#">Page With Sidebar</a></li>
 							<li><a href="#">Full Width</a></li>

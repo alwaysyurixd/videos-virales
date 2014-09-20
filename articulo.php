@@ -9,6 +9,7 @@ $fila = mysqli_fetch_array($resultado);
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
+<meta charset="ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title><?php echo $fila[1]; ?></title>
@@ -43,7 +44,7 @@ $fila = mysqli_fetch_array($resultado);
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=830443076990380&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--FIN DE COMENTARIOS DE FACEBOOK-->
@@ -64,7 +65,7 @@ $fila = mysqli_fetch_array($resultado);
 				echo $fila[4]; 
 			}
 			else{
-				echo "<image src='Imagenes/".$fila[4]."'>"; 
+				echo "<image src='Imagenes/".$fila[4]."' class='img-responsive'>";
 			}
 			
 			?>
@@ -74,7 +75,8 @@ $fila = mysqli_fetch_array($resultado);
 	<!-- End Main Image --> 
 
 <!-- Begin Container -->
-<div class="content">
+<div class="row">
+<div class="content col-xs-12 col-sm-6 col-md-8 col-lg-8">
 
 		<!-- Begin Post -->
 		<div class="post format-image box"> 
@@ -105,8 +107,8 @@ $fila = mysqli_fetch_array($resultado);
 	
 		<!-- Begin Comment Wrapper -->
 		<div id="comment-wrapper" class="box">		
-		<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmasvistos.com%2F2014%2F04%2FLa-huelga-esta-causando-un-gran-perjuicio-al-publico-que-requiere-del-servicio-judicial..php%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
-		<div class="fb-comments" data-href="http://alt1040.com/2014/04/pelea-fan-star-wars-harry-potter" data-width="600" data-numposts="5" data-colorscheme="dark"></div>
+		<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Falwaysyurixd.alwaysdata.net%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=830443076990380" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+		<div class="fb-comments" data-href="http://alwaysyurixd.alwaysdata.net/" data-numposts="10" data-colorscheme="dark"></div>
 		</div>	
 
 		<!-- End Comment Wrapper -->
@@ -115,7 +117,7 @@ $fila = mysqli_fetch_array($resultado);
 <!-- End Container -->
 
 <!-- Begin Sidebar -->
-<div class="sidebar box">
+<div class="sidebar box col-xs-12 col-sm-6 col-md-4 col-lg-4">
   <div class="sidebox widget">
 			<h3 class="widget-title">Articulos populares</h3>
 			<ul class="post-list">
@@ -175,7 +177,9 @@ $fila = mysqli_fetch_array($resultado);
 				<li><a href="#">Video</a>
 			</li>
 		</ul>
-</div></div>
+	</div>
+</div>
+</div>
 <!--End Sidebar -->
 <div class="clear"></div>
 

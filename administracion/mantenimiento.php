@@ -8,8 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Mantenimiento</title>
+	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../style/css/jquery-ui-1.10.4.custom.min.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -105,7 +107,7 @@
 			<label>Articulo</label><br>
 			<input type="text" name="titulo" id="titulo"><br>
 			<label>Descripción</label><br>
-			<input type="text" name="descripcion" id="descripcion"><br>
+			<textarea id="descripcion" name="descripcion" cols="50" rows="15"></textarea>
 			<label>Imagen de Portada</label>
 			<input type="file" accept="image/*" name="imagen_portada" id="imagen_portada"><br>
 			<label>Imagen de Articulo</label><br>
