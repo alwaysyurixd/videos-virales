@@ -24,9 +24,9 @@ return $cadena;
 <title>Videos virales</title>
 <link rel="stylesheet" type="text/css" media="all" href="style.css" />
 <link rel="stylesheet" type="text/css" href="style/css/media-queries.css" />
-<link rel="stylesheet" type="text/css" href="style/js/player/mediaelementplayer.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
 <link rel="stylesheet" type="text/css" href="style/css/login.css">
+<link rel="stylesheet" type="text/css" href="style/css/font-awesome.min.css">
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
 <![endif]-->
@@ -36,7 +36,6 @@ return $cadena;
 <script src="style/js/jquery-1.7.2.min.js"></script>
 <script src="style/js/ddsmoothmenu.js"></script>
 <script src="style/js/retina.js"></script>
-<script src="style/js/selectnav.js"></script>
 <script src="style/js/jquery.masonry.min.js"></script>
 <script src="style/js/jquery.fitvids.js"></script>
 <script src="style/js/jquery.backstretch.min.js"></script>
@@ -73,16 +72,13 @@ return $cadena;
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li class="active"><a href="index.php">Portada</a>
-						<ul>
-							<li><a href="#">Mes pasado</a></li>
-						</ul>
+					<li>
+						<i class="fa fa-search fa-2x"></i>
 					</li>
-					<li><a href="#">Pages</a>
-						<ul>
-							<li><a href="#">Page With Sidebar</a></li>
-							<li><a href="#">Full Width</a></li>
-						</ul>
+					<li>
+					<form class="searchform" method="get" action="busqueda.php">
+					<input type="text" name="busqueda" value="Escriba y presione Enter" onFocus="this.value=''" onBlur="this.value='Escriba y presione Enter'"/>
+					</form>
 					</li>
 					<li><a href="contact.php">Contacto</a>
 						<ul>

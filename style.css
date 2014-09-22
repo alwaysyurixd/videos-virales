@@ -548,7 +548,7 @@ hr {
     float: right;
     position: relative;
     z-index: 1003;
-    padding: 30px 0;
+    padding: 20px 0;
 }
 #menu-wrapper .menu ul {
     margin: 0;
@@ -566,7 +566,7 @@ hr {
 #menu-wrapper .menu ul li a {
     display: block;
     text-decoration: none;
-    line-height: 1;
+    line-height: 3;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 14px;
     letter-spacing: 0.4px;
@@ -576,6 +576,9 @@ hr {
     -moz-transition: all 200ms ease-in;
     padding: 0;
     font-weight: bold;
+}
+#menu-wrapper .menu ul li i{
+    line-height: 1.8;
 }
 #menu-wrapper .menu ul li.active a,
 #menu-wrapper .menu ul li a:hover {
@@ -929,7 +932,8 @@ iframe {
 }
 .error404 .searchform,
 .blog-grid .post.not-found .searchform {
-    max-width: 200px
+    max-width: 200px;
+    padding: 0;
 }
 /* =Single
 ----------------------------------------------- */
@@ -1279,7 +1283,6 @@ li.post.pingback p {
 }
 .searchform input {
     padding: 8px 10px;
-    margin-bottom: 20px;
 }
 .form-allowed-tags {
     display: none

@@ -1,0 +1,14 @@
+a{
+	text-decoration: none;
+}
+td h3{
+	font-size: 22px;
+	color: #FF3333;
+}
+.resultado{
+	margin: 15px;
+}
+.articulo{
+	border: 2px solid orange;
+	border-radius: 20px;
+}

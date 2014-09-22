@@ -3,6 +3,8 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style/css/login.css">
+	<link rel="stylesheet" type="text/css" href="style/css/font-awesome.min.css">
 </head>
 <body>
 <div class="scanlines"></div>
@@ -19,24 +21,31 @@
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li class="active"><a href="index.php">Portada</a>
+					<li>
+						<i class="fa fa-search fa-2x"></i>
+					</li>
+					<li>
+					<form class="searchform" method="get" action="busqueda.php">
+					<input type="text" name="busqueda" value="Escriba y presione Enter" onFocus="this.value=''" onBlur="this.value='Escriba y presione Enter'"/>
+					</form>
+					</li>
+					<li><a href="contact.php">Contacto</a>
 						<ul>
-							<li><a href="../2014/04/index.php">Mes pasado</a></li>
+							<li><a href="#">Typography</a></li>
+							<li><a href="#">Columns</a></li>
 						</ul>
 					</li>
-					<li><a href="page-with-sidebar.html">Pages</a>
+					<li><div id="open_close">Login</div>
 						<ul>
-							<li><a href="page-with-sidebar.html">Page With Sidebar</a></li>
-							<li><a href="full-width.html">Full Width</a></li>
+							<form id="login" action="login.php" method="post">
+								<label>Nombre</label>
+								<input type="text" id="nombre" placeholder="Nombre" name="usuario" maxlength="15">
+								<label>Password</label>
+								<input type="password" id="password" placeholder="Password" name="password" maxlength="15">
+								<input type="submit" value="Acceder" id="enviar">
+							</form>
 						</ul>
 					</li>
-					<li><a href="typography.html">Styles</a>
-						<ul>
-							<li><a href="typography.html">Typography</a></li>
-							<li><a href="columns.html">Columns</a></li>
-						</ul>
-					</li>
-					<li><a href="contact.php">Contacto</a></li>
 				</ul>
 			</div>
 		</div>
