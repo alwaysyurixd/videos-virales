@@ -49,6 +49,7 @@ $fila = mysqli_fetch_array($resultado);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--FIN DE COMENTARIOS DE FACEBOOK-->
 <body class="single">
+<?php include_once("analyticstracking.php"); ?>
 <?php include("includes/menu.php") ?>
 <!-- Begin Wrapper -->
 <div class="wrapper"><!-- Begin Intro -->

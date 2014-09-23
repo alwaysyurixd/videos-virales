@@ -56,6 +56,7 @@ return $cadena;
 </script>
 </head>
 <body>
+<?php include_once("includes/analyticstracking.php"); ?>
 <div class="scanlines"></div>
 
 <!-- Begin Header -->
