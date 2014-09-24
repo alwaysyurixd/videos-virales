@@ -38,6 +38,7 @@ $fila = mysqli_fetch_array($resultado);
 	$.backstretch("style/images/bg/1.jpg");
 </script>
 </head>
+<?php include_once("includes/analyticstracking.php"); ?>
 <!--COMENTARIOS DE FACEBOOK-->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -49,7 +50,6 @@ $fila = mysqli_fetch_array($resultado);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--FIN DE COMENTARIOS DE FACEBOOK-->
 <body class="single">
-<?php include_once("analyticstracking.php"); ?>
 <?php include("includes/menu.php") ?>
 <!-- Begin Wrapper -->
 <div class="wrapper"><!-- Begin Intro -->
