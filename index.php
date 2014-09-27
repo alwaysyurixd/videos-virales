@@ -4,17 +4,62 @@ if (isset($_GET['error'])) {
 	echo "<script>alert('Error de inicio de sesion')</script>";
 }
 include('globales.php');
-function normaliza ($cadena){ 
-$originales = 'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'; 
-$modificadas = 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY'; 
-$cadena = strtr($cadena, utf8_decode($originales), $modificadas); 
-$cadena = strtolower($cadena); 
-return $cadena;
-} 
+function normaliza($cadena)
+{   
+    $cadena = str_replace(
+        array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä',' ','"'),
+        array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A','-',''),
+        $cadena
+    );
+ 
+    $cadena = str_replace(
+        array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+        array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+        $cadena
+    );
+ 
+    $cadena = str_replace(
+        array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+        array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+        $cadena
+    );
+ 
+    $cadena = str_replace(
+        array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+        array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+        $cadena
+    );
+ 
+    $cadena = str_replace(
+        array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+        array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+        $cadena
+    );
+ 
+    $cadena = str_replace(
+        array('ñ', 'Ñ', 'ç', 'Ç'),
+        array('n', 'N', 'c', 'C',),
+        $cadena
+    );
+ 
+    //Esta parte se encarga de eliminar cualquier caracter extraño
+    $cadena = str_replace(
+        array("\\", "¨", "º", "~",
+             "#", "@", "|", "!", "\"",
+             "·", "$", "%", "&", "/",
+             "(", ")", "?", "'", "¡",
+             "¿", "[", "^", "`", "]",
+             "+", "}", "{", "¨", "´",
+             ">", "<", ";", ",", ":",
+             ".",'"'),
+        '',
+        $cadena
+    );
+    return $cadena;
+}
 
 	$charset='ISO-8859-1'; // o 'UTF-8'
 	
-
  ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -129,7 +174,8 @@ return $cadena;
 		$contador=0;
 		while($fila = mysqli_fetch_array($resultado)){
 		$fecha=explode('-', $fila['fecha']);
-		$titulo=$fila[1];
+		$cadena=$fila[1];
+		$titulo=normaliza($cadena);
 		$id=$fila[0];
 	?>
 		<div class="post format-image box"> 
@@ -140,7 +186,7 @@ return $cadena;
 			
 			</div>
 			<h2 class="title"><?php echo "<a href='articulo-$fecha[0]-$fecha[1]_$titulo-$id'>
-				".$fila[1]."</a>"; ?></h2>
+				".$titulo."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $fecha[2]."/".$fecha[1]."/".$fecha[0]; ?></a></span>

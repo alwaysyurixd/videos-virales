@@ -11,7 +11,6 @@
 	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Mantenimiento</title>
-	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../style/css/jquery-ui-1.10.4.custom.min.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -79,7 +78,6 @@
 	$conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
 	$consulta="select * from articulo order by fecha desc";
 	$resultado=mysqli_query($conexion,$consulta);
-
 	while ($fila = mysqli_fetch_array($resultado)){
 		if ($fila[6]==2) {
 			$fila[4]="video";

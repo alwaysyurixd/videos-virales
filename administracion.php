@@ -73,7 +73,6 @@ if(isset($_SESSION["usuario"]))
 </script>
 </head>
 <body>
-<?php include_once("analyticstracking.php"); ?>
 <div class="scanlines"></div>
 
 <!-- Begin Header -->
