@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="style/css/login.css">
 	<link rel="stylesheet" type="text/css" href="style/css/font-awesome.min.css">
 </head>

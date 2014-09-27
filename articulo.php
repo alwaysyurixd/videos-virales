@@ -2,6 +2,8 @@
 $id=$_GET['id'];
 include('globales.php');
 $conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
+$consulta_visitas="update articulo set visitas=visitas+1 where idArticulo='".$id."'"; 
+$suma=mysqli_query($conexion,$consulta_visitas);
 $consulta="select * from articulo where idArticulo='".$id."'";
 $resultado=mysqli_query($conexion,$consulta);
 $fila = mysqli_fetch_array($resultado);				
@@ -89,11 +91,11 @@ $fila = mysqli_fetch_array($resultado);
 			</div>
 		
 			<h1 class="title"><?php echo $fila[1]; ?></h1>
-			<p>
+			<h5>
 			<?php
 				echo $fila[2];
 			 ?>
-			</p>
+			</h5>
 		
 			<div class="tags"><a href="#">journal</a>, <a href="#">photography</a> </div>	
 			
@@ -118,7 +120,7 @@ $fila = mysqli_fetch_array($resultado);
 <!-- End Container -->
 
 <!-- Begin Sidebar -->
-<div class="sidebar box col-xs-12 col-sm-6 col-md-4 col-lg-4">
+<div class="sidebar box">
   <div class="sidebox widget">
 			<h3 class="widget-title">Articulos populares</h3>
 			<ul class="post-list">
@@ -133,7 +135,7 @@ $fila = mysqli_fetch_array($resultado);
 				</li>
 				<li> 
 			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s2.jpg" /></a>
+			  			<a href="#"><?php echo "<img src='imagenes/$fila[5]'>"; ?></a>
 			  		</div>
 					<div class="meta">
 					    <h6><a href="#">Trickling Stream</a></h6>

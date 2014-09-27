@@ -1,4 +1,4 @@
-<div class="footer-wrapper">
+<div class="footer-wrapper col-sm-12">
 <div id="footer" class="four">
 		<div id="first" class="widget-area">
 			<div class="widget widget_search">

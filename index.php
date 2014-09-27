@@ -169,7 +169,7 @@ function normaliza($cadena)
 		<!-- Inicio de un artículo -->
 	<?php  
 		$conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
-		$consulta="select * from articulo order by fecha desc limit 8";
+		$consulta="select * from articulo order by idArticulo desc limit 8";
 		$resultado=mysqli_query($conexion,$consulta);
 		$contador=0;
 		while($fila = mysqli_fetch_array($resultado)){
@@ -186,7 +186,7 @@ function normaliza($cadena)
 			
 			</div>
 			<h2 class="title"><?php echo "<a href='articulo-$fecha[0]-$fecha[1]_$titulo-$id'>
-				".$titulo."</a>"; ?></h2>
+				".$fila[1]."</a>"; ?></h2>
 			<blockquote><cite>Yuri Carranza</cite></blockquote>
 			<div class="details">
 				<span class="icon-image"><a href="#"><?php echo $fecha[2]."/".$fecha[1]."/".$fecha[0]; ?></a></span>
