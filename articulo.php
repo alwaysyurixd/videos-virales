@@ -1,12 +1,16 @@
 <?php 
 $id=$_GET['id'];
 include('globales.php');
+include('includes/normalizacion_url.php');
 $conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
 $consulta_visitas="update articulo set visitas=visitas+1 where idArticulo='".$id."'"; 
 $suma=mysqli_query($conexion,$consulta_visitas);
 $consulta="select * from articulo where idArticulo='".$id."'";
 $resultado=mysqli_query($conexion,$consulta);
-$fila = mysqli_fetch_array($resultado);				
+$fila = mysqli_fetch_array($resultado);
+//mas visitados
+$consulta2="select titulo,imagen_miniatura,fecha,idArticulo from articulo order by visitas desc limit 3";
+$resultado2=mysqli_query($conexion,$consulta2);				
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
@@ -57,8 +61,13 @@ $fila = mysqli_fetch_array($resultado);
 <div class="wrapper"><!-- Begin Intro -->
 <div class="intro"><?php echo $frase_semana; ?></div>
 <ul class="social">
-<li><a class="rss" href="#"></a></li><li><a class="facebook" href="#"></a></li><li><a class="twitter" href="https://twitter.com/AlwaysYurixD"></a></li><li><a class="pinterest" href="#"></a></li><li><a class="dribbble" href="#"></a></li><li><a class="flickr" href="#"></a></li><li><a class="linkedin" href="#"></a></li></ul><!-- End Intro --> 
-
+	<li><a class="rss" href="#"></a></li><li><a class="facebook" href="#"></a></li>
+	<li><a class="twitter" href="https://twitter.com/AlwaysYurixD"></a></li>
+	<li><a class="pinterest" href="#"></a></li><li><a class="dribbble" href="#"></a></li>
+	<li><a class="flickr" href="#"></a></li><li><a class="linkedin" href="#"></a></li>
+</ul>
+<!-- End Intro --> 
+	
 	<!-- Begin Main Image -->
 	<div class="main-image">
 		<div class="outer">
@@ -68,7 +77,7 @@ $fila = mysqli_fetch_array($resultado);
 				echo $fila[4]; 
 			}
 			else{
-				echo "<image src='Imagenes/".$fila[4]."' class='img-responsive'>";
+				echo "<img src='Imagenes/".$fila[4]."' class='img-responsive'>";
 			}
 			
 			?>
@@ -123,35 +132,27 @@ $fila = mysqli_fetch_array($resultado);
 <div class="sidebar box">
   <div class="sidebox widget">
 			<h3 class="widget-title">Articulos populares</h3>
+			<?php 
+				while ($fila=mysqli_fetch_array($resultado2)) {
+					$fecha=explode('-', $fila['fecha']);
+					$cadena=$fila[0];
+					$titulo=normaliza($cadena);
+					$id=$fila[3];
+				
+			 ?>
 			<ul class="post-list">
-			  	<li> 
-			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s1.jpg" /></a>
-			  		</div>
-					<div class="meta">
-					    <h6><a href="#">Charming Winter</a></h6>
-					    <em>28th Sep 2012</em>
-				    </div>
-				</li>
 				<li> 
 			  		<div class="frame">
-			  			<a href="#"><?php echo "<img src='imagenes/$fila[5]'>"; ?></a>
+			  			<?php echo "<a href='articulo-$fecha[0]-$fecha[1]_$titulo-$id'><img src='imagenes/$fila[1]'></a>";?>
 			  		</div>
 					<div class="meta">
-					    <h6><a href="#">Trickling Stream</a></h6>
-					    <em>5th Sep 2012</em>
-				    </div>
-				</li>
-				<li> 
-			  		<div class="frame">
-			  			<a href="#"><img src="style/images/art/s3.jpg" /></a>
-			  		</div>
-					<div class="meta">
-					    <h6><a href="#">Morning Glory</a></h6>
-					    <em>26th Sep 2012</em>
+					    <h6><?php echo "<a href='articulo-$fecha[0]-$fecha[1]_$titulo-$id'>$fila[0]</a>";?></h6>
 				    </div>
 				</li>
 			</ul>
+			<?php 
+			}
+			 ?>
 			
 	</div>
 	

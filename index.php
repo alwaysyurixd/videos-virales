@@ -4,60 +4,8 @@ if (isset($_GET['error'])) {
 	echo "<script>alert('Error de inicio de sesion')</script>";
 }
 include('globales.php');
-function normaliza($cadena)
-{   
-    $cadena = str_replace(
-        array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä',' ','"'),
-        array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A','-',''),
-        $cadena
-    );
- 
-    $cadena = str_replace(
-        array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
-        array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
-        $cadena
-    );
- 
-    $cadena = str_replace(
-        array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
-        array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
-        $cadena
-    );
- 
-    $cadena = str_replace(
-        array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
-        array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
-        $cadena
-    );
- 
-    $cadena = str_replace(
-        array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
-        array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
-        $cadena
-    );
- 
-    $cadena = str_replace(
-        array('ñ', 'Ñ', 'ç', 'Ç'),
-        array('n', 'N', 'c', 'C',),
-        $cadena
-    );
- 
-    //Esta parte se encarga de eliminar cualquier caracter extraño
-    $cadena = str_replace(
-        array("\\", "¨", "º", "~",
-             "#", "@", "|", "!", "\"",
-             "·", "$", "%", "&", "/",
-             "(", ")", "?", "'", "¡",
-             "¿", "[", "^", "`", "]",
-             "+", "}", "{", "¨", "´",
-             ">", "<", ";", ",", ":",
-             ".",'"'),
-        '',
-        $cadena
-    );
-    return $cadena;
-}
-
+include('includes/normalizacion_url.php');
+include('paginacion.php');
 	$charset='ISO-8859-1'; // o 'UTF-8'
 	
  ?>
@@ -72,6 +20,7 @@ function normaliza($cadena)
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
 <link rel="stylesheet" type="text/css" href="style/css/login.css">
 <link rel="stylesheet" type="text/css" href="style/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style/css/paginacion.css">
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
 <![endif]-->
@@ -151,16 +100,20 @@ function normaliza($cadena)
 	</div>
 </div>
 
-	
-
 <!-- End Header -->
 
 <!-- Begin Wrapper -->
 <div class="wrapper"><!-- Begin Intro -->
 <div class="intro"><?php echo $frase_semana; ?></div>
 <ul class="social">
-<li><a class="rss" href="#"></a></li><li><a class="facebook" href="https://www.facebook.com/yuri.carranza.73"></a></li><li><a class="twitter" href="https://twitter.com/AlwaysYurixD"></a></li><li><a class="pinterest" href="#"></a></li><li><a class="dribbble" href="#"></a></li><li><a class="flickr" href="#"></a></li><li><a class="linkedin" href="https://pe.linkedin.com/pub/yuri-carranza-quispe/94/251/b87/"></a></li></ul><!-- End Intro --> 
-
+	<li><a class="rss" href="#"></a></li>
+	<li><a class="facebook" href="https://www.facebook.com/yuri.carranza.73"></a></li>
+	<li><a class="twitter" href="https://twitter.com/AlwaysYurixD"></a></li>
+	<li><a class="pinterest" href="#"></a></li><li><a class="dribbble" href="#"></a></li>
+	<li><a class="flickr" href="#"></a></li>
+	<li><a class="linkedin" href="https://pe.linkedin.com/pub/yuri-carranza-quispe/94/251/b87/"></a></li>
+</ul>
+<!-- End Intro --> 
 
 <!-- Begin Blog Grid -->
 <div class="blog-wrap">
@@ -168,11 +121,8 @@ function normaliza($cadena)
 	<div class="blog-grid">
 		<!-- Inicio de un artículo -->
 	<?php  
-		$conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
-		$consulta="select * from articulo order by idArticulo desc limit 8";
-		$resultado=mysqli_query($conexion,$consulta);
-		$contador=0;
-		while($fila = mysqli_fetch_array($resultado)){
+		
+		while($fila = mysqli_fetch_array($articulos)){
 		$fecha=explode('-', $fila['fecha']);
 		$cadena=$fila[1];
 		$titulo=normaliza($cadena);
@@ -205,12 +155,27 @@ function normaliza($cadena)
 <!-- End Blog Grid -->
 
 <!-- Begin Page-navi -->
-    <div id="navigation">
-      <div class="nav-previous"><a href="pagina2.php" ><span class="meta-nav-prev">&larr; Mas antiguos</span></a></div>
-      <!-- 
-			<div class="nav-next"><a href="#" ><span class="meta-nav-next">Newer posts &rarr;</span></a></div>
-			 --> 
-    </div>
+<?php  
+ echo '<div class="paginacion" id="navigation">';
+
+                // mostramos la paginación
+                for ($i=1; $i <= $paginasTotales; $i++) { 
+
+                    // para identificar la página actual, le agregamos una clase
+                    // para darle un estilo diferente 
+                    if($i == $paginaActual){
+                        echo '<span class="pagina actual">' . $i . '</span>';
+                    }
+                    // sólo vamos a mostrar los enlaces de la primer página,
+                    // las dos siguientes, las dos anteriores
+                    // y la última
+                    else if($i == 1 || $i == $paginasTotales || ($i >= $paginaActual - 2 && $i <= $paginaActual + 2)){
+                        echo '<a href="?pagina=' . $i . '" class="pagina">' . $i . '</a>';
+                    }
+                }
+                echo '</div>'
+                ?>
+    
     <!-- End Page-navi --> 
 
 </div>

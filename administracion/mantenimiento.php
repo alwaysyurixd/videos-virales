@@ -61,42 +61,45 @@
 </head>
 <body>
 	<h2 align="center">Ultimos articulos publicados</h2>
-	<table align="center" class="table-condensed table-striped table-bordered">
-	<tr>
-	 	<th>Id articulo</th>
-	 	<th>Titulo</th>
-	 	<th>Descripcion</th>
-	 	<th>Imagen de portada</th>
-	 	<th>Imagen de articulo</th>
-	 	<th>Fecha</th>
-	 	<th>Editar</th>
-	 	<th>Eliminar</th>
-	</tr>
-
-	<?php 
-	include("../globales.php");
-	$conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
-	$consulta="select * from articulo order by fecha desc";
-	$resultado=mysqli_query($conexion,$consulta);
-	while ($fila = mysqli_fetch_array($resultado)){
-		if ($fila[6]==2) {
-			$fila[4]="video";
+	<div class="table-responsive">
+		<table class="table table-condensed table-striped table-bordered">
+		<thead>
+			<tr>
+			 	<th>ID</th>
+			 	<th>Titulo</th>
+			 	<th>Descripcion</th>
+			 	<th>Imagen de portada</th>
+			 	<th>Imagen de articulo</th>
+			 	<th>Fecha</th>
+			 	<th>Editar</th>
+			 	<th>Eliminar</th>
+			</tr>
+		</thead>
+		<?php 
+		include("../globales.php");
+		$conexion=mysqli_connect($servidor,$usuarioBD,$passwordBD,$base_datos);
+		$consulta="select * from articulo order by fecha desc";
+		$resultado=mysqli_query($conexion,$consulta);
+		while ($fila = mysqli_fetch_array($resultado)){
+			if ($fila[6]==2) {
+				$fila[4]="video";
+			}
+			echo " 	
+		 		<tr id='fila'>
+		 			<td>$fila[0]</td>
+		 			<td>$fila[1]</td>
+		 			<td>$fila[2]</td>
+		 			<td>$fila[3]</td>
+		 			<td>$fila[4]</td>
+		 			<td>$fila[7]</td>
+		 			<td id='columna'><a data-accion='editar'><button id='boton_editar' class='btn btn-primary'>Editar</button></a></td>
+		 			<td><a href='eliminar_articulo.php?id=".$fila[0]."'><button id='boton_eliminar' class='btn btn-danger'>Eliminar</button></a></td>
+		 		</tr>
+		 	";
 		}
-		echo " 	
-	 		<tr id='fila'>
-	 			<td>$fila[0]</td>
-	 			<td>$fila[1]</td>
-	 			<td>$fila[2]</td>
-	 			<td>$fila[3]</td>
-	 			<td>$fila[4]</td>
-	 			<td>$fila[7]</td>
-	 			<td id='columna'><a data-accion='editar'><button id='boton_editar' class='btn btn-primary'>Editar</button></a></td>
-	 			<td><a href='eliminar_articulo.php?id=".$fila[0]."'><button id='boton_eliminar' class='btn btn-danger'>Eliminar</button></a></td>
-	 		</tr>
-	 	";
-	}
-	 ?>
-	</table>
+		 ?>
+		</table>
+	</div>
 	<br>
 	<div align="center"><a href="../administracion.php"><button style="width:120px" class="btn btn-success">Regresar</button></a></div>
 	<div id="ventana" style="display:none">
